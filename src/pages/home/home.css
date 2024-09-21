@@ -1,6 +1,7 @@
-.spinner {
+.spinner-container {
     display: flex;
     justify-content: center; /* Centre horizontalement */
     align-items: center;     /* Centre verticalement */
-    height: 100vh;           /* Pour que le conteneur prenne la hauteur totale de la fenêtre */
-}
+    height: 70vh;           /* Prend la hauteur de la fenêtre */
+  }
+  

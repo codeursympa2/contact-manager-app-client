@@ -42,7 +42,7 @@ export const deleteContact = async (id) => {
   try {
     await deleteContactById(id);
   } catch (error) {
-    console.error("Erreur lors de la suppression de l'Contact", error);
+    console.error("Erreur lors de la suppression du contact", error);
     throw error;
   }
 };
