@@ -2,8 +2,8 @@ import Table from 'react-bootstrap/Table';
 export function List({contacts}){
     return (
        <div className='m-0'>
-         <Table striped bordered hover  >
-            <thead>
+         <Table striped bordered hover responsive  >
+            <thead >
             <tr className='text-center'>
                 <th>#</th>
                 <th>Nom</th>

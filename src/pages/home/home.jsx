@@ -5,11 +5,12 @@ import { MyAlert } from "../../components/myAlert";
 import './home.css';
 import Search from "../../features/Search";
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import DismissibleToast from "../../components/toast";
+import Title from "../../components/title";
 
 function HomeContent() {
   const [contacts, loading, error,fetchContacts] = useContacts();
-
  
   // Fonction pour rafraîchir les contacts
   function handleRefresh() {
@@ -59,10 +60,16 @@ function HomeContent() {
 
 
 function Home(){
+  const location = useLocation();
+  const { state } = location;
+
   return (
     <>
-      <h3 className="text-center p-2 bg-danger text-white rounded-1">Contact Manager App</h3>
+      <Title title="Liste des contacts"></Title>
       <HomeContent></HomeContent>
+      {state && state.message && (
+        <DismissibleToast bg="success" message={state.message} />
+      )}
     </>
   )
 }
