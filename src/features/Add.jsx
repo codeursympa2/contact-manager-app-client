@@ -170,7 +170,7 @@ function FormContent() {
 
 function Add(){
     return (
-      <div className="mx-auto col-lg-6 col-sm-12 col-xs-12">
+      <div className="mx-auto col-lg-6 col-sm-12 mt-lg-5 mt-xs-1 mt-sm-1 col-xs-12">
         <Title title ="Ajout d'un contact" />
         <FormContent/>
       </div>
