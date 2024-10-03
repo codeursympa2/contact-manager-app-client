@@ -15,3 +15,6 @@ export const deleteContactById = async (id) =>
 //Recupération d'un contact par id
 export const getContactById = async (id) =>
   await axios.get(`${API_URL}${id}/detail`);
+
+export const searchContact = async (param) =>
+  await axios.get(`${API_URL}search?q=${param}`);

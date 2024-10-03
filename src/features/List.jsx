@@ -3,8 +3,23 @@ import Table from 'react-bootstrap/Table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, } from '@fortawesome/free-solid-svg-icons';
 import Delete from './Delete';
+import { useNavigate } from 'react-router-dom';
+import { MyAlert } from '../components/myAlert';
 
 function List({contacts,onDelete}){
+
+    const navigate=useNavigate();
+
+    const goToUpdate = (contact) => {
+        //On va sur contact avec les données
+        navigate(`update/${contact.id}`, { state: { contact } });
+    }
+
+    if(contacts.length === 0){
+        return (
+            <MyAlert header="Information" message="Pas de résultat pour cette recherche." type="warning" />
+          );
+    }
     return (
        <div className='m-0'>
          <Table striped bordered hover responsive  >
@@ -29,8 +44,8 @@ function List({contacts,onDelete}){
                         <td>+221 {contact.tel}</td>
                         <td>{contact.address}</td>
                         <td>
-                            <DeleteButton onDelete={() => onDelete(contact.id)} contact={contact}/>&nbsp;
-                            <EditButton></EditButton>
+                            <DeleteButton onDelete={ () => onDelete(contact.id)} contact={contact}/>&nbsp;
+                            <EditButton onUpdate={() => goToUpdate(contact)} />
                         </td>
                     </tr>
                 ))}
@@ -46,9 +61,11 @@ function DeleteButton({contact, onDelete}){
     );
 }
 
-function EditButton(){
+
+
+function EditButton({onUpdate}){
     return (
-        <Button variant='danger' >
+        <Button variant='danger' onClick={onUpdate}>
             <FontAwesomeIcon icon={faEdit}/> 
         </Button>
     );

@@ -5,6 +5,7 @@ import Index from "./pages";
 import Add from "./features/Add";
 import NoPage from "./pages/noPage";
 import Home from "./pages/home/home";
+import Update from "./features/Update";
 function App() {
   return (
     <BrowserRouter>
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Index />}>
           <Route index element={<Home />} />
           <Route path="add" element={<Add />} />
+          <Route path="update/:id" element={<Update />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

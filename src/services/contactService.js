@@ -1,6 +1,11 @@
 // services/ContactService.js
 
-import { addContact, updateContact, deleteContactById } from "../api/contacts";
+import {
+  addContact,
+  updateContact,
+  deleteContactById,
+  searchContact,
+} from "../api/contacts";
 
 // Créer un nouvel Contact avec validation
 export const createNewContact = async (contactData) => {
@@ -14,9 +19,9 @@ export const createNewContact = async (contactData) => {
 };
 
 // Mettre à jour un Contact existant avec validation
-export const updateExistingContact = async (id, contactData) => {
+export const updateExistingContact = async (contactData, id) => {
   try {
-    const response = await updateContact(id, contactData);
+    const response = await updateContact(contactData, id);
     return response.data; // Formater les dates après mise à jour
   } catch (error) {
     console.error("Erreur lors de la mise à jour de l'Contact", error);
@@ -30,6 +35,16 @@ export const deleteContact = async (id) => {
     await deleteContactById(id);
   } catch (error) {
     console.error("Erreur lors de la suppression du contact", error);
+    throw error;
+  }
+};
+
+export const searchContactByParam = async (param) => {
+  try {
+    const response = await searchContact(param);
+    return response.data;
+  } catch (error) {
+    console.error("Erreur lors de la recherche du contact", error);
     throw error;
   }
 };
