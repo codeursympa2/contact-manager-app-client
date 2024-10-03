@@ -107,7 +107,7 @@ function HomeContent() {
 }
 
 
-function Home(){
+function HomePage(){
   const location = useLocation();
   const { state } = location;
 
@@ -123,4 +123,4 @@ function Home(){
   )
 }
 
-export default Home;
+export default HomePage;

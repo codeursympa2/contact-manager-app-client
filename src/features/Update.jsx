@@ -1,18 +1,12 @@
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import ContactForm from '../components/contactForm';
 import Title from '../components/title';
 import {  updateExistingContact } from '../services/contactService';
 import { useState } from 'react';
 import DismissibleToast from '../components/toast';
-function Update(){
+function Update({id,contact}){
   const [error, setError] = useState(null);
-  // Utilisation de useParams pour récupérer l'id de l'URL
-  const { id } = useParams();
-
-  const location = useLocation(); // Récupère l'objet contact depuis l'état
-
-  const { contact } = location.state || {}; // Si l'état est défini, récupère le contact
-
+ 
 
 
   //Récupération du

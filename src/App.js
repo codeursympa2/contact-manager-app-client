@@ -1,19 +1,19 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages";
-import Add from "./features/Add";
+import IndexPage from "./pages";
 import NoPage from "./pages/noPage";
-import Home from "./pages/home/home";
-import Update from "./features/Update";
+import HomePage from "./pages/home/home";
+import AddPage from "./pages/addPage";
+import UpdatePage from "./pages/updatePage";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Index />}>
-          <Route index element={<Home />} />
-          <Route path="add" element={<Add />} />
-          <Route path="update/:id" element={<Update />} />
+        <Route path="/" element={<IndexPage />}>
+          <Route index element={<HomePage />} />
+          <Route path="add" element={<AddPage />} />
+          <Route path="update/:id" element={<UpdatePage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

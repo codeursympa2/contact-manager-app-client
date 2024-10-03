@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import NavScroll from "../components/navbar";
 
- function Index(){
+ function IndexPage(){
     //Header
     return (
         <>
@@ -14,4 +14,4 @@ import NavScroll from "../components/navbar";
 }
 
 
-export default Index; 
+export default IndexPage; 
